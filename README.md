@@ -58,7 +58,7 @@ Huge thanks to the team behind this project 👇
 |-------------------|-----------------------------------------------------|----------------------------|
 | 🧑‍💻 Khushi Bhaskar | [@khushi-bhaskr](https://github.com/khushi-bhaskr) | Backend + AI Integration   |
 | 🎨 Aman Kumar      | [@Amank07-debug](https://github.com/Amank07-debug)         | UI/UX Design + Animations  |
-| 💻 Teammate 2      | [@teammate2](https://github.com/teammate2)         | Frontend Development       |
+| 💻 Suryansh      | [@Surya-03461](https://github.com/Surya-03461)         | Frontend Development       |
 
 
 ---
