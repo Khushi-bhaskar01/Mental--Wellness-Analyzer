@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Wellness Analyzer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    :root {
+      --primary: #764ba2;
+      --secondary: #667eea;
+      --text-light: #fff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    header {
+      color: var(--text-light);
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .wow-heading {
+      font-size: 3rem;
+      font-weight: 800;
+    }
+
+    .subheading {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
+    .about-section {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      color: white;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+
+    .about-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .quote {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #e0ffe3;
+    }
+
+    .launch-button {
+      display: inline-block;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      background-color: white;
+      color: #764ba2;
+      font-weight: 600;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      transition: all 0.3s ease;
+    }
+
+    .launch-button:hover {
+      transform: scale(1.05);
+      background-color: #764ba2;
+      color: white;
+    }
+
+    .iframe-section {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 1000px;
+      height: 750px;
+      border-radius: 20px;
+      border: none;
+      box-shadow: 0 0 30px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: white;
+      font-size: 0.9rem;
+    }
+
+    /* Cursor Trail */
+    .cursor {
+      pointer-events: none;
+      position: fixed;
+      display: block;
+      top: 0;
+      left: 0;
+      z-index: 999999;
+      mix-blend-mode: difference;
+    }
+
+    .circle {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background-color: white;
+    }
+
+    @media (max-width: 768px) {
+      .wow-heading { font-size: 2rem; }
+      iframe { height: 600px; }
+    }
+
+    @media (max-width: 480px) {
+      iframe { height: 520px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cursor Trail -->
+  <div class="cursor">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <h1 class="wow-heading">🧠 Mental Wellness Analyzer</h1>
+    <p class="subheading">Get instant AI-powered insights into your mental wellness</p>
+  </header>
+
+  <!-- About -->
+  <section class="about-section">
+    <h2>✨ About This Project</h2>
+    <p>
+      This AI-powered Mental Wellness Analyzer helps you reflect on your emotional state using advanced NLP and sentiment analysis.
+    </p>
+    <p class="quote">💬 "A little check-in goes a long way 💚"</p>
+  </section>
+
+  <!-- Button -->
+  <div style="text-align: center;">
+    <a href="#app" class="launch-button" onclick="launchConfetti()">🚀 Try the Analyzer</a>
+  </div>
+
+  <!-- Iframe -->
+  <section id="app" class="iframe-section">
+    <iframe src="https://khushi-bhaskr-moodbooster-ai.hf.space" loading="lazy"></iframe>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    Made with ❤️ using Hugging Face + Gradio
+  </footer>
+
+  <!-- Confetti Script -->
+  <script>
+    function launchConfetti() {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+
+  <!-- Cursor Animation -->
+  <script>
+    const coords = { x: 0, y: 0 };
+    const circles = document.querySelectorAll(".circle");
+
+    circles.forEach(function (circle) {
+      circle.x = 0;
+      circle.y = 0;
+    });
+
+    window.addEventListener("mousemove", function (e) {
+      coords.x = e.clientX;
+      coords.y = e.clientY;
+    });
+
+    function animateCircles() {
+      let x = coords.x;
+      let y = coords.y;
+
+      circles.forEach(function (circle, index) {
+        circle.style.left = x - 12 + "px";
+        circle.style.top = y - 12 + "px";
+        circle.style.scale = (circles.length - index) / circles.length;
+
+        circle.x = x;
+        circle.y = y;
+
+        const next = circles[index + 1] || circles[0];
+        x += (next.x - x) * 0.3;
+        y += (next.y - y) * 0.3;
+      });
+
+      requestAnimationFrame(animateCircles);
+    }
+
+    animateCircles();
+  </script>
+
+</body>
+</html>
